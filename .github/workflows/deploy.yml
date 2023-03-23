@@ -1,0 +1,14 @@
+name: Deploy
+
+on: 
+  push:
+    branches: [ main ]
+    
+jobs:
+  build:
+  
+    runs-on: ubunto-latest
+    
+    steps:
+      - uses: actions/checkout@v2
+      
