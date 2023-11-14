@@ -21,17 +21,19 @@ jobs:
       - run: yarn install --frozen-lockfile
       - run: yarn build
       
-      - name: Pushes to another repository
-        uses: cpina/github-action-push-to-another-repository@main
+      - name: Pushes to another repository        
         env:          
           API_TOKEN_GITHUB: ${{ secrets.API_TOKEN_GITHUB }}
-        with:
-          source-directory: output/
-          destination-github-username: loq24
-          destination-repository-name: private-portfolio
-          user-email: lougie.quisel@gmail.com
-          target-branch: main
-          
+      - run: |
+          cd output
+          git config --global user.email "lougie.quisel@gmail.com"
+          git config --global user.name "loq24"
+          git config --global credential.helper cache
+          git clone https://${{secrets.API_TOKEN_GITHUB}}@github.com/private-portfolio          
+          git add .
+          git commit -m "$(date)"
+          git push
+        
       - uses: aws-actions/configure-aws-credentials@v2
         with:
             aws-access-key-id: ${{ secrets.AWS_ACCESS_KEY_ID }}
