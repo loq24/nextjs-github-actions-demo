@@ -24,7 +24,7 @@ jobs:
         env:          
           API_TOKEN_GITHUB: ${{ secrets.API_TOKEN_GITHUB }}
       - run: |
-          cd output
+          cd out
           git config --global user.email "lougie.quisel@gmail.com"
           git config --global user.name "loq24"
           git config --global credential.helper cache
