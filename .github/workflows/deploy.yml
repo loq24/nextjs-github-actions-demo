@@ -29,7 +29,9 @@ jobs:
           git config --global user.email "lougie.quisel@gmail.com"
           git config --global user.name "loq24"
           git config --global credential.helper cache
-          git clone https://${{secrets.API_TOKEN_GITHUB}}@github.com/private-portfolio          
+          git clone https://${{secrets.API_TOKEN_GITHUB}}@github.com/private-portfolio
+          cp -R A private-portfolio/
+          cd private-portfolio
           git add .
           git commit -m "$(date)"
           git push
