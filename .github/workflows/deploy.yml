@@ -23,13 +23,12 @@ jobs:
               
         env:          
           API_TOKEN_GITHUB: ${{ secrets.API_TOKEN_GITHUB }}
-      - run: |
-          cd out
+      - run: |          
           git config --global user.email "lougie.quisel@gmail.com"
           git config --global user.name "loq24"
           git config --global credential.helper cache
           git clone https://${{ secrets.API_TOKEN_GITHUB }}@github.com/loq24/private-portfolio
-          cp -R A private-portfolio/
+          cp -a /out/. /private-portfolio/
           cd private-portfolio
           git add .
           git commit -m "$(date)"
