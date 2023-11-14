@@ -28,7 +28,7 @@ jobs:
         with:
           source-directory: output/
           destination-github-username: loq24
-          destination-repository-name: nextjs-github-actions-demo
+          destination-repository-name: private-portfolio
           user-email: lougie.quisel@gmail.com
           target-branch: main
           
