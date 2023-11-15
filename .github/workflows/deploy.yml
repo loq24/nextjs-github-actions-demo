@@ -28,6 +28,7 @@ jobs:
           git config --global user.name "loq24"
           git config --global credential.helper cache
           git clone https://${{ secrets.API_TOKEN_GITHUB }}@github.com/loq24/private-portfolio
+          sudo rm -r private-portfolio/*
           sudo cp -a out/. private-portfolio/
           cd private-portfolio
           git add .
